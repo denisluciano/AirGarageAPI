@@ -13,6 +13,10 @@ class SessionController {
       response.status(401).send()
     }
   }
+
+  async test() {
+    return "This route only return a simple message informing that's ok";
+  }
 }
 
 module.exports = SessionController
