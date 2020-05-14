@@ -50,16 +50,17 @@ npm install
 ```
 
 ## if you not have mysql on computer
+https://support.rackspace.com/how-to/install-mysql-server-on-the-ubuntu-operating-system/
 ### Install the MySQL server by using the Ubuntu operating system package manager:
 
 ```
 sudo apt-get update
 sudo apt-get install mysql-server
 ```
+The installer installs MySQL and all dependencies.
 
-### The installer installs MySQL and all dependencies.
 
-If the secure installation utility does not launch automatically after the installation completes, enter the following command:
+### If the secure installation utility does not launch automatically after the installation completes, enter the following command:
 ```
 sudo mysql_secure_installation utility
 ```
@@ -105,4 +106,8 @@ cp .env.example .env
 adonis key:generate
 ```
 
-## 
+## run migrations
+
+```
+adonis migration:run
+```
