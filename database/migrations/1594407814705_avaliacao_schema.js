@@ -11,14 +11,32 @@ class AvaliacaoSchema extends Schema {
       table.float('nota')
       table.string('comentario', 255)
 
-      table.integer('cliente_id').unsigned().notNullable()
-      table.foreign('cliente_id').references('id').inTable('users')
+      table
+      .integer('cliente_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
 
-      table.integer('proprietario_id').unsigned().notNullable()
-      table.foreign('proprietario_id').references('id').inTable('users')
+      table
+      .integer('proprietario_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
 
-      table.integer('locacao_id').unsigned().notNullable()
-      table.foreign('locacao_id').references('id').inTable('locacaos')
+      table.
+      integer('locacao_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('locacaos')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
     })
   }
 

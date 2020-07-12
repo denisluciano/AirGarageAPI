@@ -10,8 +10,14 @@ class FotoGarageSchema extends Schema {
       table.string('endereco_imagem', 255).notNullable()
       table.timestamps()
 
-      table.integer('garage_id').unsigned().notNullable()
-      table.foreign('garage_id').references('id').inTable('garages')
+      table
+      .integer('garage_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('garages')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
     })
   }
 

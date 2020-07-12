@@ -13,14 +13,32 @@ class LocacaoSchema extends Schema {
       table.date('data_inicial')
       table.date('data_final')
 
-      table.integer('cliente_id').unsigned().notNullable()
-      table.foreign('cliente_id').references('id').inTable('users')
+      table
+      .integer('cliente_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
 
-      table.integer('proprietario_id').unsigned().notNullable()
-      table.foreign('proprietario_id').references('id').inTable('users')
+      table
+      .integer('proprietario_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
 
-      table.integer('garage_id').unsigned().notNullable()
-      table.foreign('garage_id').references('id').inTable('garages')
+      table
+      .integer('garage_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('garages')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
     })
   }
 

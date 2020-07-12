@@ -9,10 +9,21 @@ class ClienteFavoritoSchema extends Schema {
       table.increments()
       table.timestamps()
 
-      table.integer('cliente_id').unsigned().notNullable()
-      table.foreign('cliente_id').references('id').inTable('users')
-      table.integer('proprietario_id').unsigned().notNullable()
-      table.foreign('proprietario_id').references('id').inTable('users')
+      table
+      .integer('cliente_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
+      table.integer('proprietario_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
     })
   }
 

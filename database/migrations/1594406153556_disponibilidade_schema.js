@@ -12,8 +12,14 @@ class DisponibilidadeSchema extends Schema {
       table.float('valor_diaria')
       table.timestamps()
 
-      table.integer('garage_id').unsigned().notNullable()
-      table.foreign('garage_id').references('id').inTable('garages')
+      table
+      .integer('garage_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('garages')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
     })
   }
 

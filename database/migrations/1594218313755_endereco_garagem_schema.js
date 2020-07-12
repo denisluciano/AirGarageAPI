@@ -17,8 +17,14 @@ class EnderecoGaragemSchema extends Schema {
       table.string('cep', 80)
       table.timestamps()
 
-      table.integer('user_id').unsigned().notNullable()
-      table.foreign('user_id').references('id').inTable('users')
+      table
+      .integer('user_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
     })
   }
 

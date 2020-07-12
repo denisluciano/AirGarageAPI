@@ -20,7 +20,8 @@ class GarageController {
    * @param {Response} ctx.response
    */
   async index ({ request, response }) {
-    const garages = await Garage.all();
+    const garages = await Garage.query().with('enderecoGaragem').fetch();
+    // const garagew = garages.enderecoGaragem().fetch()
 
     return garages;
   }

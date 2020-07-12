@@ -9,10 +9,22 @@ class GaragensFavoritasSchema extends Schema {
       table.increments()
       table.timestamps()
 
-      table.integer('user_id').unsigned().notNullable()
-      table.foreign('user_id').references('id').inTable('users')
-      table.integer('garage_id').unsigned().notNullable()
-      table.foreign('garage_id').references('id').inTable('garages')
+      table
+      integer('user_id')
+      unsigned()
+      notNullable()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
+      table
+      .integer('garage_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('garages')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
     })
   }
 

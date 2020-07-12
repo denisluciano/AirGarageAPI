@@ -21,11 +21,22 @@ class GarageSchema extends Schema {
       table.timestamps()
 
       //chave estrangeira
-      table.integer('user_id').unsigned().notNullable()
-      table.foreign('user_id').references('id').inTable('users')
-
-      table.integer('endereco_garagem_id').unsigned().notNullable()
-      table.foreign('endereco_garagem_id').references('id').inTable('endereco_garagems')
+      table
+      .integer('user_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
+      table
+      .integer('endereco_garagem_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('endereco_garagems')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
 
     })
   }
