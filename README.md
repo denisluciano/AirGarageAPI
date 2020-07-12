@@ -111,3 +111,9 @@ adonis key:generate
 ```
 adonis migration:run
 ```
+
+## To run project
+
+```
+adonis serve --dev
+```

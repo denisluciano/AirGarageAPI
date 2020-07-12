@@ -1,5 +1,7 @@
 'use strict'
 
+const GarageController = require('../app/Controllers/Http/GarageController')
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -18,4 +20,18 @@ const Route = use('Route')
 
 Route.post('/users', 'UserController.create')
 Route.post('/sessions', 'SessionController.create')
-Route.get('/testapi', 'SessionController.test')
+// Route.get('/testapi', 'SessionController.test')
+/*
+obs1: Basicamente vou criar um grupo de rotas e nele vou usar um middleware de autentificação.
+Isso quer dizer que todas essas rotas que a gente definir dentro desse midleware vão
+precisar de autentificação
+obs2: Quando usamos o adonisjs temos algumas rotas que é quando estamos usando o adonis em modo
+não somente api. Essas rotas são para lidar com formulario. Para a gente remover essas rotas
+passamos parametro apiOnly.
+obs 3: Para excluir alguma rota basta usarmos except('nome da rota')
+*/
+Route.group(() => {
+  /* Ao inves de criar uma rota criar, listar, deletar, atualizar... Vamos fazer isso
+  Tudo de uma vez, usando Resource */
+  Route.resource('garages', "GarageController").apiOnly()
+}).middleware('auth')
