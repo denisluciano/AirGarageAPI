@@ -9,9 +9,6 @@ class SessionController {
 
     const { email, password } = request.all();
 
-
-
-
     try {
 
       const token = await auth.attempt(email, password);
@@ -32,9 +29,6 @@ class SessionController {
 
   }
 
-  async test() {
-    return "This route only return a simple message informing that's ok";
-  }
 }
 
 module.exports = SessionController

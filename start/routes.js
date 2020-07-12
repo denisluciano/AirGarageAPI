@@ -20,7 +20,6 @@ const Route = use('Route')
 
 Route.post('/users', 'UserController.create')
 Route.post('/sessions', 'SessionController.create')
-// Route.get('/testapi', 'SessionController.test')
 /*
 obs1: Basicamente vou criar um grupo de rotas e nele vou usar um middleware de autentificação.
 Isso quer dizer que todas essas rotas que a gente definir dentro desse midleware vão
@@ -34,4 +33,6 @@ Route.group(() => {
   /* Ao inves de criar uma rota criar, listar, deletar, atualizar... Vamos fazer isso
   Tudo de uma vez, usando Resource */
   Route.resource('garages', "GarageController").apiOnly()
+  Route.resource('endereco', "EnderecoGaragemController").apiOnly()
+  Route.resource('disponibilidade', "DisponibilidadeController").apiOnly()
 }).middleware('auth')

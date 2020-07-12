@@ -20,9 +20,9 @@ class GarageController {
    * @param {Response} ctx.response
    */
   async index ({ request, response }) {
-    const Garages = await Garage.all();
+    const garages = await Garage.all();
 
-    return Garages;
+    return garages;
   }
 
 
