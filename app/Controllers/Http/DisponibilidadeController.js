@@ -42,6 +42,33 @@ class DisponibilidadeController {
     const disponibilidade = await Disponibilidade.create({...data});
 
     return disponibilidade;
+
+    //========================//
+/*  Esse é o formato que createMany espera
+    const disp = [
+      {
+        "data_inicial" : "2020-08-01",
+        "data_final":"2020-08-11",
+        "valor_diaria":15,
+        "garage_id": 1
+      },
+      {
+        "data_inicial" : "2020-08-02",
+        "data_final":"2020-08-12",
+        "valor_diaria":15,
+        "garage_id": 1
+      },
+      {
+        "data_inicial" : "2020-08-03",
+        "data_final":"2020-08-13",
+        "valor_diaria":15,
+        "garage_id": 1
+      },
+    ]
+    const disponibilidade = await Disponibilidade.createMany(disp);
+
+    return disponibilidade;
+    */
   }
 
   /**

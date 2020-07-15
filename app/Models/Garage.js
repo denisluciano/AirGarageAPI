@@ -10,6 +10,9 @@ class Garage extends Model {
   enderecoGaragem(){
     return this.belongsTo('App/Models/EnderecoGaragem');
   }
+  disponibilidadeGaragem(){
+    return this.hasMany('App/Models/Disponibilidade');
+  }
 }
 
 module.exports = Garage
