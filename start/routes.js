@@ -38,4 +38,5 @@ Route.group(() => {
   Route.resource('locacao', "LocacaoController").apiOnly()
   Route.get('locacaoproprietario', "LocacaoController.locacaoByProprietario")
   Route.get('locacaocliente', "LocacaoController.locacaoByCliente")
+  Route.get('garagesproprietario', "GarageController.garagesByProprietario")
 }).middleware('auth')

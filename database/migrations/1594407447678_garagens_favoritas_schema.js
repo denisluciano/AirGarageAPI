@@ -10,9 +10,9 @@ class GaragensFavoritasSchema extends Schema {
       table.timestamps()
 
       table
-      integer('user_id')
-      unsigned()
-      notNullable()
+      .integer('user_id')
+      .unsigned()
+      .notNullable()
       .references('id')
       .inTable('users')
       .onDelete('CASCADE')

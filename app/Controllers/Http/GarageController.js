@@ -28,6 +28,14 @@ class GarageController {
     return garages;
   }
 
+  async garagesByProprietario ({ auth, request, response }) {
+    const garages = await Garage.query().where('user_id', auth.user.id).with('enderecoGaragem').with('disponibilidadeGaragem').with('locacaoGaragem').fetch();
+    // const garagew = garages.enderecoGaragem().fetch()
+
+
+    return garages;
+  }
+
 
   /**
    * Create/save a new garage.
@@ -55,7 +63,7 @@ class GarageController {
       vaga_presa: data.vaga_presa,
       coberto: data.coberto,
       objetos: data.objetos,
-      endereco_garagem_id:5,
+      endereco_garagem_id:1,
     })
 
     let keys = [];
