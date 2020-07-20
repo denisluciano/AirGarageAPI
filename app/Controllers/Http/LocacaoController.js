@@ -19,7 +19,26 @@ class LocacaoController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
+  async index ({ request, response }) {
+    const locacaos = await Locacao.query().with('garageLocacao').with('proprietarioLocacao').with('clienteLocacao').fetch();
+    // const garagew = garages.enderecoGaragem().fetch()
+
+
+    return locacaos;
+  }
+
+  async locacaoByProprietario ({ auth, request, response}) {
+    const locacaos = await Locacao.query().where('proprietario_id', auth.user.id).with('garageLocacao').with('proprietarioLocacao').with('clienteLocacao').fetch();
+    // const garagew = garages.enderecoGaragem().fetch()
+
+    return locacaos;
+  }
+  async locacaoByCliente ({ auth, request, response }) {
+    const locacaos = await Locacao.query().where('cliente_id', auth.user.id).with('garageLocacao').with('proprietarioLocacao').with('clienteLocacao').fetch();
+    // const garagew = garages.enderecoGaragem().fetch()
+
+
+    return locacaos;
   }
 
 
@@ -33,9 +52,13 @@ class LocacaoController {
    * @param {Response} ctx.response
    */
   async store ({ auth, request, response }) {
+    console.log("dwedfw")
     const data = request.all();
 
-    const locacao = await Locacao.create({cliente_id = auth.user.id ,...data})
+
+    console.log(data);
+
+    const locacao = await Locacao.create({cliente_id: auth.user.id ,...data})
 
     return locacao;
   }

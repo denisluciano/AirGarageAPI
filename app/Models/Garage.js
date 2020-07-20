@@ -13,6 +13,9 @@ class Garage extends Model {
   disponibilidadeGaragem(){
     return this.hasMany('App/Models/Disponibilidade');
   }
+  locacaoGaragem(){
+    return this.hasMany('App/Models/Locacao');
+  }
 }
 
 module.exports = Garage

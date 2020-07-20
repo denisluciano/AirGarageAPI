@@ -35,4 +35,7 @@ Route.group(() => {
   Route.resource('garages', "GarageController").apiOnly()
   Route.resource('endereco', "EnderecoGaragemController").apiOnly()
   Route.resource('disponibilidade', "DisponibilidadeController").apiOnly()
+  Route.resource('locacao', "LocacaoController").apiOnly()
+  Route.get('locacaoproprietario', "LocacaoController.locacaoByProprietario")
+  Route.get('locacaocliente', "LocacaoController.locacaoByCliente")
 }).middleware('auth')
